@@ -62,5 +62,11 @@ RSpec.describe Calculator do
       calculator = Calculator.new 
       expect(calculator.power(4,2)).to eq(16)
     end 
-  end  
+  end 
+  describe 'power' do 
+     it 'should return the product of two number' do 
+       calculator = Calculator.new 
+       expect(calculator.power(4,2)).to eq(16)
+     end 
+   end 
 end
