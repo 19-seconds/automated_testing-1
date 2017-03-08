@@ -2,15 +2,10 @@ require 'rspec'
 
 class Fizzbuzz
   def output(number)
-    if (number %3 == 0 && number %5 == 0)
-     return "Fizzbuzz"
-    elsif (number %3 ==0) 
-      return "fizz"
-    elsif (number %5 ==0)
-      return "buzz"
-    else 
-      return number 
-    end 
+    return "Fizzbuzz" if (number % 15 == 0)
+    return "fizz" if (number % 3 == 0) 
+    return "buzz" if (number % 5 ==0)
+    return number 
   end
 
 
@@ -38,14 +33,20 @@ RSpec.describe Fizzbuzz do
       expect(fb.output(3)).to eq("fizz")
     end
 
-    it 'should return Fizzbuzz if given 3 and 5' do 
-      fb = Fizzbuzz.new 
-      expect(fb.output(15)).to eq("Fizzbuzz")
-    end
 
     it 'should return buzz if given 5'do 
       fb = Fizzbuzz.new 
       expect(fb.output(5)).to eq("buzz")
+    end
+
+    it 'should return fizz if given 6' do 
+      fb = Fizzbuzz.new 
+      expect(fb.output(6)).to eq("fizz")
+    end
+
+    it 'should return Fizzbuzz if divisible by 3 and 5' do 
+      fb = Fizzbuzz.new 
+      expect(fb.output(15)).to eq("Fizzbuzz")
     end
   end 
 end
